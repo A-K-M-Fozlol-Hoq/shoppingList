@@ -1,11 +1,22 @@
-import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import React, { useState } from 'react';
+import {View, Text, StyleSheet, Image, FlatList} from 'react-native';
 import Header from './components/Header';
+import { v4 as uuid} from "uuid";
 
 const App = () => {
+  const [items, setItems] = useState([
+    { id: uuid(), text: 'Milk', },
+    { id: uuid(), text: 'Egg', },
+    { id: uuid(), text: 'Bread', },
+    { id: uuid(), text: 'Juice', },
+  ]);
   return (
     <View style={style.container}>
-      <Header></Header>
+      <Header title="Shopping List"></Header>
+      <FlatList 
+        data={items} 
+        renderItem={({item})=> <Text>{item.text}</Text>}  
+      />
     </View>
   );
 };
