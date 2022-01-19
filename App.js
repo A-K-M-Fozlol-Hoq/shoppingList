@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {View, Text, StyleSheet, Image, FlatList} from 'react-native';
 import Header from './components/Header';
 import { v4 as uuid} from "uuid";
+import ListItem from './components/ListItem';
 
 const App = () => {
   const [items, setItems] = useState([
@@ -11,17 +12,17 @@ const App = () => {
     { id: uuid(), text: 'Juice', },
   ]);
   return (
-    <View style={style.container}>
+    <View style={styles.container}>
       <Header title="Shopping List"></Header>
       <FlatList 
         data={items} 
-        renderItem={({item})=> <Text>{item.text}</Text>}  
+        renderItem={({item})=> <ListItem item={item}></ListItem>}  
       />
     </View>
   );
 };
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   container:{
     flex: 1, 
     // paddingTop:60,
