@@ -1,10 +1,11 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
+import Header from './components/Header';
 
 const App = () => {
   return (
     <View style={style.container}>
-      <Text style={style.text}>Hello World!</Text>
+      <Header></Header>
     </View>
   );
 };
@@ -12,13 +13,9 @@ const App = () => {
 const style = StyleSheet.create({
   container:{
     flex: 1, 
-    justifyContent: 'center', 
-    alignItems: 'center'
-  },
-  text:{
-    color: 'darkslateblue', 
-    fontSize:30}
-    
+    // paddingTop:60,
+  }
+
 })
 
 export default App;
